@@ -7,6 +7,7 @@ private:
     size_t size;
 
 public:
+    Array();
     Array(size_t n);
     Array(size_t n, bool israndom);
     Array(size_t n, int min, int max);
@@ -19,9 +20,11 @@ public:
     void Sort();
     void Append(T elem);
     void Pop();
+    void Popfifo();
     void Clear();
 
     int Top();
+    int Topfifo();
     int Min();
     int Max();
 
@@ -45,6 +48,12 @@ public:
     bool operator>(const Array& other);
     bool operator<(const Array& other);
 };
+
+template<typename T>
+Array<T>::Array() {
+    size = 10;
+    array = new int[10];
+}
 
 template<typename T>
 Array<T>::Array(size_t n) {
@@ -150,6 +159,17 @@ void Array<T>::Pop() {
 }
 
 template<typename T>
+void Array<T>::Popfifo() {
+    T* newArray = new T[size - 1];
+    for (size_t i = 1; i < size; i++) {
+        newArray[i - 1] = array[i];
+    }
+    delete[] array;
+    array = newArray;
+    size--;
+}
+
+template<typename T>
 void Array<T>::Clear() {
     T* newArray = new T[size];
     delete[] array;
@@ -159,6 +179,11 @@ void Array<T>::Clear() {
 template<typename T>
 int Array<T>::Top() {
     return this->array[this->size-1];
+}
+
+template<typename T>
+int Array<T>::Topfifo() {
+    return this->array[0];
 }
 
 template<typename T>
