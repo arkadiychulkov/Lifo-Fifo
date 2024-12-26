@@ -18,6 +18,10 @@ int FIFO::Top() {
 	return this->arr.Topfifo();
 }
 
+int FIFO::getSize() {
+	return arr.Sizeoff();
+}
+
 void FIFO::Pop() {
 	this->arr.Popfifo();
 }

@@ -24,9 +24,10 @@ public:
     void Clear();
 
     int Top();
-    int Topfifo();
+    T Topfifo();
     int Min();
     int Max();
+    int Sizeoff();
 
     Array& operator=(const Array& usar);
     Array& operator=(Array&& userArr);
@@ -174,6 +175,7 @@ void Array<T>::Clear() {
     T* newArray = new T[size];
     delete[] array;
     array = newArray;
+    size = 0;
 }
 
 template<typename T>
@@ -182,7 +184,7 @@ int Array<T>::Top() {
 }
 
 template<typename T>
-int Array<T>::Topfifo() {
+T Array<T>::Topfifo() {
     return this->array[0];
 }
 
@@ -195,6 +197,11 @@ int Array<T>::Min() {
         }
     }
     return minVal;
+}
+
+template<typename T>
+int Array<T>::Sizeoff() {
+    return sizeof(array);
 }
 
 template<typename T>

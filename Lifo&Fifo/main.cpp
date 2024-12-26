@@ -13,6 +13,7 @@ int main() {
 	//std::cout << stek1.Top() << "\n";
 
 	FIFO stek2(5);
+	std::cout << stek2.getSize() << "\n";
 	std::cout << stek2.Top() << "\n";
 	stek2.Pop();
 	std::cout << stek2.Top() << "\n";

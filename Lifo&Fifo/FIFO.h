@@ -11,5 +11,6 @@ public:
 	int Top();
 	void Pop();
 	void Push(int val);
+	int getSize();
 };
 
