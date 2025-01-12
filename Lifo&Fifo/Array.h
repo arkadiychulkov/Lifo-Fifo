@@ -150,7 +150,7 @@ void Array<T>::Append(T elem) {
 
 template<typename T>
 void Array<T>::Pop() {
-    T* newArray = new T[size + 1];
+    T* newArray = new T[size - 1];
     for (size_t i = 0; i < size-1; i++) {
         newArray[i] = array[i];
     }
